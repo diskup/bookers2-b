@@ -40,7 +40,11 @@
         <tr>
           <td><%= today_books %></td>
           <td><%= yesterday_books %></td>
+          <% if day_percentage == "???" %>
+          <td>計測できません</td>
+          <% else %>
           <td><%= day_percentage %>％</td>
+          <% end %>
         </tr>
       </table>
       <table class="table table-bordered">
@@ -52,7 +56,11 @@
         <tr>
           <td><%= week_books %></td>
           <td><%= from_week_books %></td>
+          <% if week_percentage == "???" %>
+          <td>計測できません</td>
+          <% else %>
           <td><%= week_percentage %>％</td>
+          <% end %>
         </tr>
       </table>
 
