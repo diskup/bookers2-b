@@ -5,6 +5,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
+    @data = []
+    i = 6
+    while i > 0
+      @data << ["#{i}日前", @user.books.where(created_at: i.day.ago.all_day).count]
+      i = i - 1
+    end
+    @data << ["本日", @user.books.where('created_at > ?', Date.today).count]
   end
 
   def index
